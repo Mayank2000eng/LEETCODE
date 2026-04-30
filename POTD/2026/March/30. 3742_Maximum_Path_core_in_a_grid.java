@@ -17,7 +17,6 @@ class Solution {
         }
         if(i==grid.length||j==grid[0].length) return -1;
         if(dp[i][j][k]!=null) return dp[i][j][k];
-        if(i==grid.length||j==grid[0].length) return -1;
         int ans1=-1,ans2=-1;
         int c=0;
         if(grid[i][j]!=0) c=1;
