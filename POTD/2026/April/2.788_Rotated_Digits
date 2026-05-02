@@ -1,0 +1,22 @@
+class Solution {
+    public int rotatedDigits(int n) {
+        int ans=0;
+        for(int i=0;i<=n;i++){
+            int c=0;
+            int check=i;
+            int flag=0;
+            while(check>0){
+                int r=check%10;
+                if(r==7||r==3||r==4){
+                    flag=1;
+                    break;
+                }
+                if(r==2||r==5||r==6||r==9) c++;
+                check/=10;
+            }
+            if(flag==1) continue;
+            if(c!=0) ans++;
+        }
+        return ans;
+    }
+}
