@@ -1,0 +1,109 @@
+# Jump Game IX Notes
+
+## Standard Problem Idea
+
+Given:
+
+* `nums[]` → heights
+* `cost[]` → jump cost
+
+Goal:
+Reach last index with minimum total cost.
+
+## Valid Jump Rules
+
+Jump from `i` to `j` (`i < j`) if:
+
+### Rule 1 — Valley Jump
+
+```text
+nums[i] <= nums[j]
+```
+
+and all elements between them are smaller than `nums[i]`.
+
+### Rule 2 — Mountain Jump
+
+```text
+nums[i] > nums[j]
+```
+
+and all elements between them are greater or equal to `nums[i]`.
+
+## Standard Approach
+
+* Dynamic Programming
+* Monotonic Stack
+* Minimum Cost Transitions
+
+Usually:
+
+```text
+dp[j] = min(dp[j], dp[i] + cost[j])
+```
+
+---
+
+# My Prefix/Suffix Based Observation
+
+## Precomputation
+
+### Prefix Maximum
+
+```text
+pref[i] = max(0...i)
+```
+
+### Suffix Minimum
+
+```text
+suf[i] = min(i...n-1)
+```
+
+These create a valid range/corridor.
+
+---
+
+## Greedy Backward Pass
+
+Maintain:
+
+```text
+far = index of smaller future candidate
+```
+
+Transition:
+
+```java
+if(nums[far] < pref[i] && nums[far] >= suf[i])
+    ans[i] = ans[far];
+else
+    ans[i] = pref[i];
+```
+
+Update:
+
+```java
+if(nums[i] < nums[far])
+    far = i;
+```
+
+---
+
+# Important Observation
+
+This solution does NOT solve standard Jump Game IX.
+
+Why?
+
+* Standard problem is DP + Monotonic Stack.
+* It minimizes jump cost.
+* My approach only analyzes prefix/suffix range behavior.
+
+So this becomes more of:
+
+* Greedy
+* Range inheritance
+* Prefix/Suffix boundary analysis
+
+rather than shortest path DP.
