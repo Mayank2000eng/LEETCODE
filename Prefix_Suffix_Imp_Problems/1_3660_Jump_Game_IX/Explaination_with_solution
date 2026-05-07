@@ -1,80 +1,90 @@
-# Jump Game IX Notes
+# Jump Game IX — Prefix/Suffix Observation
 
-## Standard Problem Idea
-
-Given:
-
-* `nums[]` → heights
-* `cost[]` → jump cost
-
-Goal:
-Reach last index with minimum total cost.
-
-## Valid Jump Rules
-
-Jump from `i` to `j` (`i < j`) if:
-
-### Rule 1 — Valley Jump
-
-```text
-nums[i] <= nums[j]
-```
-
-and all elements between them are smaller than `nums[i]`.
-
-### Rule 2 — Mountain Jump
-
-```text
-nums[i] > nums[j]
-```
-
-and all elements between them are greater or equal to `nums[i]`.
-
-## Standard Approach
+The standard Jump Game IX problem is usually solved using:
 
 * Dynamic Programming
 * Monotonic Stack
 * Minimum Cost Transitions
 
-Usually:
+We are given:
 
-```text
+* `nums[]` → heights
+* `cost[]` → jump cost
+
+Goal:
+Reach the last index with minimum total cost.
+
+---
+
+# Valid Jump Rules
+
+A jump from `i` to `j` (`i < j`) is valid if:
+
+## Valley Jump
+
+```text id="mjlwmx"
+nums[i] <= nums[j]
+```
+
+and all elements between them are smaller than `nums[i]`.
+
+## Mountain Jump
+
+```text id="20c3bh"
+nums[i] > nums[j]
+```
+
+and all middle elements are greater than or equal to `nums[i]`.
+
+---
+
+# Standard DP Transition
+
+```text id="0hdfiu"
 dp[j] = min(dp[j], dp[i] + cost[j])
 ```
 
+The main objective is to generate valid next jumps efficiently and minimize total cost.
+
 ---
 
-# My Prefix/Suffix Based Observation
+# My Prefix/Suffix Based Idea
 
-## Precomputation
+Instead of DP + stacks, this approach uses global boundaries.
 
-### Prefix Maximum
+## Prefix Maximum
 
-```text
+```text id="nnvk3j"
 pref[i] = max(0...i)
 ```
 
-### Suffix Minimum
+Stores the maximum value seen so far.
 
-```text
+## Suffix Minimum
+
+```text id="q17s4u"
 suf[i] = min(i...n-1)
 ```
 
-These create a valid range/corridor.
+Stores the minimum value ahead.
+
+These arrays create a valid range/corridor for analysis.
 
 ---
 
-## Greedy Backward Pass
+# Greedy Backward Traversal
 
-Maintain:
+A pointer:
 
-```text
-far = index of smaller future candidate
+```text id="od4u0l"
+far
 ```
 
-Transition:
+tracks a smaller future candidate.
 
-```java
+Core logic:
+
+```java id="r5l6vh"
 if(nums[far] < pref[i] && nums[far] >= suf[i])
     ans[i] = ans[far];
 else
@@ -83,7 +93,7 @@ else
 
 Update:
 
-```java
+```java id="dpxz5h"
 if(nums[i] < nums[far])
     far = i;
 ```
@@ -92,18 +102,19 @@ if(nums[i] < nums[far])
 
 # Important Observation
 
-This solution does NOT solve standard Jump Game IX.
+This solution does NOT solve the original Jump Game IX problem because:
 
-Why?
-
-* Standard problem is DP + Monotonic Stack.
+* Standard problem requires DP optimization.
 * It minimizes jump cost.
-* My approach only analyzes prefix/suffix range behavior.
+* My approach only performs:
 
-So this becomes more of:
+  * prefix/suffix analysis
+  * greedy inheritance
+  * range propagation
 
-* Greedy
-* Range inheritance
-* Prefix/Suffix boundary analysis
+So this behaves more like:
 
-rather than shortest path DP.
+* a greedy range problem
+* prefix/suffix boundary analysis
+
+rather than shortest path dynamic programming.
