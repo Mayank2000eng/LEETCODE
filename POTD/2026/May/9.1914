@@ -1,0 +1,48 @@
+class Solution {
+    public int[][] rotateGrid(int[][] grid, int k) {
+        int i = 0, j = 0, m = grid.length, n = grid[0].length;
+        while(i < m && j < n) {
+            int len = 2*(m - i)+2*(n-j)-4;
+            int rot = k % len;
+            while(rot-- > 0) {
+                int temp = grid[i][j];
+                int i1 = i + 1, j1 = j;
+                while(i1 < m) {
+                    int temp1 = grid[i1][j1];
+                    grid[i1][j1] = temp;
+                    temp = temp1;
+                    i1++;
+                }
+                i1 = m - 1;
+                j1 = j + 1;
+                while(j1 < n) {
+                    int temp1 = grid[i1][j1];
+                    grid[i1][j1] = temp;
+                    temp = temp1;
+                    j1++;
+                }
+                j1 = n - 1;
+                i1 = m - 2;
+                while(i1 >= i) {
+                    int temp1 = grid[i1][j1];
+                    grid[i1][j1] = temp;
+                    temp = temp1;
+                    i1--;
+                }
+                i1 = i;
+                j1 = n - 2;
+                while(j1 >= j) {
+                    int temp1 = grid[i1][j1];
+                    grid[i1][j1] = temp;
+                    temp = temp1;
+                    j1--;
+                }
+            }
+            i++;
+            j++;
+            m--;
+            n--;
+        }
+        return grid;
+    }
+}
