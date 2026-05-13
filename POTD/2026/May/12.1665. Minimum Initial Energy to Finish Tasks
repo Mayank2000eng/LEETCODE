@@ -1,0 +1,34 @@
+class Solution {
+    public int minimumEffort(int[][] tasks) {
+        int[][]tasks1=new int[tasks.length][3];
+        for(int i=0;i<tasks.length;i++){
+            tasks1[i][0]=tasks[i][0];
+            tasks1[i][1]=tasks[i][1];
+            tasks1[i][2]=Math.abs(tasks[i][1]-tasks[i][0]);
+        }
+        Arrays.sort(tasks1,(x,y)->Integer.compare(y[2],x[2]));
+        int l=0;
+        int h=0;
+        for(int i=0;i<tasks.length;i++){
+            l=Math.max(l,tasks[i][1]);
+        }
+        h=Integer.MAX_VALUE;
+        int ans=-1;
+        while(l<=h){
+            int m=l+(h-l)/2;
+            if(check(tasks1,m)==1){
+                ans=m;
+                h=m-1;
+            }else l=m+1;
+        }
+        return ans;
+    }
+    int check(int[][] tasks1,int m){
+        int m1=m;
+        for(int i=0;i<tasks1.length;i++){
+            if(tasks1[i][1]>m1) return 0;
+            m1-=tasks1[i][0];
+        }
+        return 1;
+    }
+}
