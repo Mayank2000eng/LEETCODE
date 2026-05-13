@@ -1,27 +1,39 @@
-🚀 **LeetCode Journey – Daily Practice & Contest Solutions**
+# 🚀 LeetCode Solutions & DSA Archives
 
-This repository documents my consistent journey of solving problems on LeetCode, with a focus on improving problem-solving skills, mastering Data Structures and Algorithms (DSA), and preparing for technical interviews. It includes my daily practice problems as well as solutions from weekly and biweekly contests, all organized in a clean and structured manner.
+![Language](https://img.shields.io/badge/Language-Java%20%7C%20C%2B%2B-blue?style=for-the-badge&logo=java)
+![LeetCode](https://img.shields.io/badge/Platform-LeetCode-ffa116?style=for-the-badge&logo=leetcode&logoColor=black)
+![Focus](https://img.shields.io/badge/Focus-Revision%20%7C%20Contests-success?style=for-the-badge)
 
-The goal of this repository is not just to store solutions, but to track progress, understand different approaches, and build a strong foundation in algorithmic thinking. Each problem is solved with attention to clarity, efficiency, and optimization. Wherever possible, I explore multiple approaches ranging from brute force to optimized solutions, helping in better conceptual understanding.
+Welcome to my **LeetCode** repository! 🎯 
 
-📌 **What this repository contains:**
+Daily LeetCode solutions and contest submissions with a focus on consistency, optimized approaches, and strong DSA fundamentals. This workspace is strictly dedicated to tracking my daily problem-solving progress and maintaining a well-structured archive for quick conceptual revision.
 
-* Daily LeetCode problem solutions
-* Weekly & Biweekly contest submissions
-* Clean, readable, and well-structured code
-* Topic-wise problem coverage (Arrays, Strings, DP, Graphs, Trees, etc.)
+## 📂 Repository Structure & Key Topics
 
-⚡ **Highlights:**
+To make interview preparation and exam revision highly efficient, I've categorized problems by specific patterns and sources rather than just dumping them all together. 
 
-* Focus on writing efficient and optimized code
-* Regular updates to maintain consistency
-* Useful for revision and interview preparation
+Here is what you will find inside:
 
-🎯 **Objective:**
-To stay consistent, continuously improve coding skills, and develop a deep understanding of algorithms and data structures.
+*   🗓️ **`POTD/2026`**
+    *   My daily tracker for LeetCode's Problem of the Day. Consistency is key, and this folder logs my daily streaks and solutions.
+*   🏆 **`Contest_good_questions`**
+    *   A curated collection of tricky or insightful problems encountered during live LeetCode contests. Perfect for revisiting high-pressure problem-solving logic.
+*   🗺️ **`BFS_Good_problems`**
+    *   Advanced Breadth-First Search problems, including state-space exploration (like prime factorization for min jumps) and shortest-path variants.
+*   🔍 **`BinarySearch`**
+    *   Standard binary search and the more complex "Binary Search on Answer" paradigms (e.g., minimum initial energy/capacity problems).
+*   ➡️ **`Prefix_Suffix_Imp_Problems`**
+    *   Crucial optimization problems where precomputing prefix and suffix arrays reduces time complexity from $O(N^2)$ to $O(N)$ (e.g., making arrays complementary).
+      
+*   ➡️ **`Just Like This Many More`**
 
-💻 **Language Used:**
+## 🧠 My Approach & Philosophy
 
-* Java
+1.  **Constraint Analysis First:** Before writing a single line of code, I evaluate the constraints. I ensure that my logic strictly avoids Time Limit Exceeded (TLE) errors by keeping the sum of operations well within safe bounds (e.g., ensuring operations don't exceed $10^6$ or $10^8$ limits).
+2.  **Custom, Intuitive Logic:** I believe in writing code that makes sense to *me*. I maintain my own naming conventions and specific logic structures rather than just copying standard templates. This makes my code much easier to dry-run and debug later.
+3.  **Optimal Complexity:** Always striving for the optimal $O(N)$ time and $O(1)$ space whenever mathematically and logically possible.
 
-This repository reflects my commitment to learning, discipline, and growth in the field of competitive programming and software development. 🚀
+---
+<div align="center">
+  <b>Developed and maintained with ❤️ by <a href="https://github.com/Mayank2000eng">Mayank Kumar</a></b>
+</div>
