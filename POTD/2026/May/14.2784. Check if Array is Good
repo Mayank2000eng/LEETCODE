@@ -1,0 +1,13 @@
+class Solution {
+    public boolean isGood(int[] nums) {
+        int[] tem=new int[nums.length+1];
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]>=nums.length) return false;
+            tem[nums[i]]++;
+            if(nums[i]>=1&&nums[i]<=nums.length-2&&tem[nums[i]]>1) return false;
+            else if(tem[nums[i]]>2) return false;
+        }
+        if(tem[nums.length-1]!=2) return false; 
+        return true;
+    }
+}
