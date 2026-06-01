@@ -1,0 +1,18 @@
+class Solution {
+    public int minimumCost(int[] cost) {
+        Arrays.sort(cost);
+        int flag=0;
+        int i=cost.length-1;
+        int ans=0;
+        while(i>=0){
+            if(flag==2){
+                flag=0;
+            }else{
+                ans+=cost[i];
+                flag++;
+            }
+            i--;
+        }
+        return ans
+    }
+}
