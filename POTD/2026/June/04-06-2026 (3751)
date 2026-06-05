@@ -1,0 +1,17 @@
+class Solution {
+    public int totalWaviness(int num1, int num2) {
+        int sum=0;
+        for(int i=num1;i<=num2;i++){
+            String s=String.valueOf(i);
+            int c=0;
+            int j=1;
+            while(j<s.length()-1){
+                if(s.charAt(j)>s.charAt(j-1)&&s.charAt(j)>s.charAt(j+1)) c++;
+                if(s.charAt(j)<s.charAt(j-1)&&s.charAt(j)<s.charAt(j+1)) c++;
+                j++;
+            }
+            sum+=c;
+        }
+        return sum;
+    }
+}
