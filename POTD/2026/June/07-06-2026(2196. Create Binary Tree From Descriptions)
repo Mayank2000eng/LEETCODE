@@ -1,0 +1,35 @@
+class Solution {
+    public TreeNode createBinaryTree(int[][] descriptions) {
+
+        HashMap<Integer, TreeNode> nodes = new HashMap<>();
+        HashSet<Integer> childSet = new HashSet<>();
+
+        for (int[] d : descriptions) {
+
+            int parent = d[0];
+            int child = d[1];
+            int isLeft = d[2];
+
+            nodes.putIfAbsent(parent, new TreeNode(parent));
+            nodes.putIfAbsent(child, new TreeNode(child));
+
+            TreeNode parentNode = nodes.get(parent);
+            TreeNode childNode = nodes.get(child);
+
+            if (isLeft == 1)
+                parentNode.left = childNode;
+            else
+                parentNode.right = childNode;
+
+            childSet.add(child);
+        }
+
+        for (int val : nodes.keySet()) {
+            if (!childSet.contains(val)) {
+                return nodes.get(val);
+            }
+        }
+
+        return null;
+    }
+}
