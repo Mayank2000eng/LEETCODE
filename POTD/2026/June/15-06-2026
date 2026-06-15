@@ -1,0 +1,33 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode deleteMiddle(ListNode head) {
+        int c=0;
+        ListNode t1=head;
+        while(t1!=null){
+            c++;
+            t1=t1.next;
+        }
+        c=c/2;
+        t1=head;
+        ListNode t2=null;
+        while(c>0){
+            c--;
+            t2=t1;
+            t1=t1.next;
+        }
+        if(t2!=null)
+            t2.next=t1.next;
+        else
+            return null;
+        return head;
+    }
+}
