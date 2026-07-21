@@ -16,8 +16,6 @@ Here is what you will find inside:
 
 *   🗓️ **`POTD/2026`**
     *   My daily tracker for LeetCode's Problem of the Day. Consistency is key, and this folder logs my daily streaks and solutions.
-*   🏆 **`Contest_good_questions`**
-    *   A curated collection of tricky or insightful problems encountered during live LeetCode contests. Perfect for revisiting high-pressure problem-solving logic.
 *   🗺️ **`BFS_Good_problems`**
     *   Advanced Breadth-First Search problems, including state-space exploration (like prime factorization for min jumps) and shortest-path variants.
 *   🔍 **`BinarySearch`**
