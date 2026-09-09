@@ -1,0 +1,27 @@
+class Solution {
+    static Integer[][] dp;
+    public int maxCoins(int[] nums) {
+        int[] arr=new int[nums.length+2];
+        arr[0]=1;
+        arr[arr.length-1]=1;
+        int d=1;
+        for(int i:nums){
+            arr[d++]=i;
+        }
+        dp=new Integer[arr.length][arr.length];
+        return find(arr,0,arr.length-1);
+    }
+    static int find(int[] nums,int l,int r){
+        if(l+2==r){
+            return nums[l]*nums[l+1]*nums[r];
+        }
+        if(dp[l][r]!=null) return dp[l][r];
+        int ans=0;
+        for(int j=l+1;j<r;j++){
+            int tem=find(nums,l,j)+find(nums,j,r);
+            tem+=nums[l]*nums[r]*nums[j];
+            ans=Math.max(ans,tem);
+        }
+        return dp[l][r]=ans;
+    }
+}
